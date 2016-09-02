@@ -1,2 +1,49 @@
 @import normalize
 @import base/mixins
+
+@charset "UTF-8"
+
+body
+  font-family: "helvetica Neue", sans-serif
+  color: #333
+  font-size: 14px
+#app
+  width: 80%
+  margin: 0 auto 0 auto
+
+#app .question ul
+  list-style: none
+  padding-left: 0
+  li
+    border-radius: 3px
+    background: #e7ebed
+    border: 1px solid #cad3d7
+    margin: 5px 0
+    padding: 10px
+    &.unpicked
+    &:hover
+      cursor: pointer
+      background: #dee4e6
+      border-color: #c1cbd1
+    &.picked
+      background: #009dbc
+      color: white
+    &.correct-holder
+    &.incorrect-holder
+    &.correct
+      background: #59b259
+      border-color: #59b259
+      color: white
+      &:before
+        content: '✔'
+        padding-right: 5px
+    &.incorrect
+      background: #da4f49
+      border-color: #da4f49
+      color: white
+      &:before
+        content: '✘'
+        padding-right: 5px
+
+#app  .answer
+  display: none
