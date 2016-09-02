@@ -12,7 +12,9 @@ $.each(quiz, function(key, value ) {
 	console.log($(this)[0]["kysymys"])
    	let uniqueID = "question-" + i; 
    	let parsed = $(this)[0]["kysymys"].replace(/(?:\r\n|\r|\n)/g, '<br />');
-    let templateDIV = `<div class="question" id=${uniqueID}> <h3>${parsed}</h3><ul></ul><div class="answer"></div></div>`
+    let templateDIV = `<div class="question" id=${uniqueID}> <div class="icon">
+           <div class="number">${i + 1}.</div>
+            </div> <h3>${parsed}</h3><ul></ul><div class="answer"></div></div>`
 
 	 $("#app").append(templateDIV);
 
@@ -92,14 +94,14 @@ console.log(id)
     //$(this).parent().next('.answer').show().parent('div').addClass('answered');
   
   	if ($(".picked").length === 7) {
-  		console.log("Hetki on koittanut")
-  		$("#field").removeAttr( "disabled")
+  		console.log("nyt se");
+  		$("#field").addClass( "active");
   	}
   
 });
 
-$('#app').append("<button type='button' id='field'>Tarkista!</button>")
-$("#field").attr("disabled", "true");
+$('#app').append("<div id='showResults'><a href='#' class='button active' id='field'> Tarkista</a></div>")
+//$("#field").attr("disabled", "true");
 
 
 $('#field').on('click', function(){
